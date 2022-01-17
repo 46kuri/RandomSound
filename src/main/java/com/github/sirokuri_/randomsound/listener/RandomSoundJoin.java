@@ -1,6 +1,7 @@
 package com.github.sirokuri_.randomsound.listener;
 
 import com.github.sirokuri_.randomsound.RandomSound;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -8,9 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class RandomSoundJoin implements Listener {
 
@@ -27,7 +26,15 @@ public class RandomSoundJoin implements Listener {
         Sound sound = getRandomSound();
         Player player = event.getPlayer();
         Location location = player.getLocation();
-        player.playSound(location,sound,3,1);
+        Timer timer = new Timer(false);
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                player.playSound(location,sound,3,1);
+                timer.cancel();
+            }
+        };
+        timer.schedule(task, 7000);
     }
 
     private Sound getRandomSound(){
