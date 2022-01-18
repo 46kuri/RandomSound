@@ -3,4 +3,4 @@ version: '${project.version}'
 main: com.github.sirokuri_.randomsound.RandomSound
 api-version: 1.15
 authors: [ 46kuri_ ]
-description: JG用プラグイン
+description: ランダムサウンドプラグイン
