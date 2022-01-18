@@ -27,10 +27,10 @@ public final class RandomSound extends JavaPlugin {
     }
 
     public Sound getRandomSound(){
-        Sound sound = null;
-        if(isValidSound(sound)) {
+        Sound sound;
+        do {
             sound = soundList.get(rand.nextInt(soundList.size()));
-        }
+        } while (!isValidSound(sound));
         return sound;
     }
 
