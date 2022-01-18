@@ -34,7 +34,7 @@ public final class RandomSound extends JavaPlugin {
         return sound;
     }
 
-    private final List<Sound> invalids = Arrays.asList(Sound.ENTITY_SPIDER_AMBIENT,Sound.ENTITY_SPIDER_STEP);
+    private final List<Sound> invalids = Arrays.asList(Sound.ENTITY_SPIDER_AMBIENT,Sound.ENTITY_SPIDER_STEP,Sound.MUSIC_DISC_11);
 
     private boolean isValidSound(Sound sound) {
         return !invalids.contains(sound);
