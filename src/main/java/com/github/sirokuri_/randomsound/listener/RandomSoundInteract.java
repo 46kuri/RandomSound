@@ -2,7 +2,6 @@ package com.github.sirokuri_.randomsound.listener;
 
 import com.github.sirokuri_.randomsound.RandomSound;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -26,7 +25,7 @@ public class RandomSoundInteract implements Listener {
         if(block == null) return;
         Sound sound = plugin.getRandomSound();
         Location location = player.getLocation();
-        if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK)) return;
+        if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK)) return;
         player.playSound(location,sound,10,1);
     }
 }
