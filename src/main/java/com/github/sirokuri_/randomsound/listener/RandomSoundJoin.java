@@ -23,11 +23,13 @@ public class RandomSoundJoin implements Listener {
         Sound sound = plugin.getRandomSound();
         Player player = event.getPlayer();
         Location location = player.getLocation();
+        Random random = new Random();
+        int randomValue = random.nextInt(100);
         Timer timer = new Timer(false);
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                player.playSound(location,sound,10,1);
+                player.playSound(location,sound,randomValue,1);
                 timer.cancel();
             }
         };

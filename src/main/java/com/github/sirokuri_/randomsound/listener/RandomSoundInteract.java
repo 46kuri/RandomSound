@@ -4,7 +4,6 @@ import com.github.sirokuri_.randomsound.RandomSound;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +11,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.Random;
 
 public class RandomSoundInteract implements Listener {
 
@@ -25,10 +26,12 @@ public class RandomSoundInteract implements Listener {
         Player player = event.getPlayer();
         Sound sound = plugin.getRandomSound();
         Location location = player.getLocation();
+        Random random = new Random();
+        int randomValue = random.nextInt(100);
         if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
         ItemStack itemStack = player.getInventory().getItemInMainHand();
         if (itemStack.getType() == Material.STICK){
-            player.playSound(location,sound,1,1);
+            player.playSound(location,sound,randomValue,1);
         }
     }
 }
