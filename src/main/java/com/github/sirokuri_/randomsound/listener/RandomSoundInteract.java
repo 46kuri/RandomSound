@@ -23,8 +23,6 @@ public class RandomSoundInteract implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        Block block = event.getClickedBlock();
-        if(block == null) return;
         Sound sound = plugin.getRandomSound();
         Location location = player.getLocation();
         if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
