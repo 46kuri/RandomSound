@@ -27,7 +27,7 @@ public class RandomSoundInteract implements Listener {
         if(block == null) return;
         Sound sound = plugin.getRandomSound();
         Location location = player.getLocation();
-        if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
+        if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
         ItemStack itemStack = player.getInventory().getItemInMainHand();
         if (itemStack.getType() == Material.STICK){
             player.playSound(location,sound,1,1);
