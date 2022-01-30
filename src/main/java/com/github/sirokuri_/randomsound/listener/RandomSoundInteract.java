@@ -4,10 +4,7 @@ import com.github.sirokuri_.randomsound.RandomSound;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -38,7 +35,7 @@ public class RandomSoundInteract implements Listener {
             BaseComponent[] component = TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&',"&4" + sound + "&r のサウンド再生"));
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR,component);
             player.playSound(location,sound,randomValue,1);
-
+            player.spawnParticle(Particle.NOTE,location,10,1,1,1,10);
         }
     }
 }
