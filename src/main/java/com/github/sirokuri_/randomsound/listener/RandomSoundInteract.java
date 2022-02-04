@@ -27,15 +27,19 @@ public class RandomSoundInteract implements Listener {
         Player player = event.getPlayer();
         Sound sound = plugin.getRandomSound();
         Location location = player.getLocation();
-        Random random = new Random();
-        int randomValue = random.nextInt(100);
-        if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
-        ItemStack itemStack = player.getInventory().getItemInMainHand();
-        if (itemStack.getType() == Material.STICK){
-            BaseComponent[] component = TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&',"&4" + sound + "&r のサウンド再生"));
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR,component);
-            player.playSound(location,sound,randomValue,1);
-            player.spawnParticle(Particle.NOTE,location,10,1,1,1,10);
+        World world = location.getWorld();
+        if (world == null) return;
+        if (world.getName().equals("RhythmWorld")){
+            Random random = new Random();
+            int randomValue = random.nextInt(10000);
+            if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
+            ItemStack itemStack = player.getInventory().getItemInMainHand();
+            if (itemStack.getType() == Material.STICK){
+                BaseComponent[] component = TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&',"&4" + sound + "&r のサウンド再生"));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR,component);
+                player.playSound(location,sound,randomValue,1);
+                player.spawnParticle(Particle.NOTE,location,10,1,1,1,10);
+            }
         }
     }
 }
