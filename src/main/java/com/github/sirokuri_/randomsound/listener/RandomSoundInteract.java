@@ -31,7 +31,7 @@ public class RandomSoundInteract implements Listener {
         if (world == null) return;
         if (world.getName().equals("RhythmWorld")){
             Random random = new Random();
-            int randomValue = random.nextInt(10000);
+            int randomValue = random.nextInt(100);
             if ((event.getHand() != EquipmentSlot.HAND || event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
             ItemStack itemStack = player.getInventory().getItemInMainHand();
             if (itemStack.getType() == Material.STICK){
