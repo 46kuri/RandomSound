@@ -1,2 +1,2 @@
 # RandomSound
-鯖に入った時と棒を持って左クリックでそのプレイヤー周辺でマイクラの音(ランダム)が鳴るやつ
+plugin for junkGames server in Azisaba Network
